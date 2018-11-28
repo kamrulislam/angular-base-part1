@@ -34,3 +34,30 @@ ng new SvBaseApp --routing --prefix sv --style scss --dry-run
 #once happy run it
 ng new SvBaseApp --routing --prefix sv --style scss
 ```
+
+## Go to the new App directory
+
+```bash
+cd SvBaseApp/
+```
+
+## Add Material design
+
+```bash
+ng add @angular/material
+```
+
+It will ask for options, I have used the following
+
+```text
+ng add @angular/material
+Installing packages for tooling via npm.
+npm WARN @angular/material@7.1.0 requires a peer of @angular/cdk@7.1.0 but none is installed. You must install peer dependencies yourself.
+
++ @angular/material@7.1.0
+added 1 package in 16.927s
+Installed packages for tooling via npm.
+? Choose a prebuilt theme name, or "custom" for a custom theme: Purple/Green       [ Preview: https://material.angular.io?theme=purple-green ]
+? Set up HammerJS for gesture recognition? Yes
+? Set up browser animations for Angular Material? Yes
+```
