@@ -24,3 +24,13 @@ Package                      Version
 rxjs                         6.3.3
 typescript                   3.1.3
 </pre>
+
+## Generate new project
+
+```bash
+# check first
+ng new SvBaseApp --routing --prefix sv --style scss --dry-run
+
+#once happy run it
+ng new SvBaseApp --routing --prefix sv --style scss
+```
