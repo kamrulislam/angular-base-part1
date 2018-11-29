@@ -72,3 +72,74 @@ ng generate @angular/material:nav MainNav --dry-run
 ng generate @angular/material:nav MainNav
 ```
 
+Put router outlet into main nav content area
+
+```html
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>SvBaseApp</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+```
+
+and replace everything in `app.component.html` with Main Nav component, like so
+
+```html
+<sv-main-nav></sv-main-nav>
+```
+
+### Create a dashboard 
+
+generate dashboard component
+
+```bash
+# test first
+ng generate @angular/material:dashboard Home --dry-run
+
+# then run it 
+ng generate @angular/material:dashboard Home
+```
+
+add dashboard to the route (`app-routing.module.ts`)
+
+```typescript
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [{
+  path: '',
+  component: HomeComponent
+}];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+
