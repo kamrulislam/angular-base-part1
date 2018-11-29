@@ -143,3 +143,50 @@ export class AppRoutingModule { }
 
 ```
 
+
+# Add ngrx support
+
+## install ngrx schematics first
+
+```bash
+npm install @ngrx/schematics --save-dev
+```
+
+## then install ngrx dependencies
+
+```bash
+npm install @ngrx/{store,effects,entity,store-devtools} --save
+```
+
+you will see some warnings
+
+```text
+npm install @ngrx/{store,effects,entity,store-devtools} --save
+npm WARN @ngrx/entity@6.1.2 requires a peer of @angular/core@^6.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @ngrx/effects@6.1.2 requires a peer of @angular/core@^6.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN @ngrx/store@6.1.2 requires a peer of @angular/core@^6.0.0 but none is installed. You must install peer dependencies yourself.
+
++ @ngrx/entity@6.1.2
++ @ngrx/effects@6.1.2
++ @ngrx/store-devtools@6.1.2
++ @ngrx/store@6.1.2
+```
+
+### initial state setup
+
+generate initial state
+
+```bash
+ng generate @ngrx/schematics:store State --root --module app.module.ts
+```
+
+generate intial effect
+
+```bash
+# test it first
+ng generate @ngrx/schematics:effect App --root --module app.module.ts --dry-run
+
+#run it
+ng generate @ngrx/schematics:effect App --root --module app.module.ts
+```
+
