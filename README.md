@@ -61,3 +61,14 @@ Installed packages for tooling via npm.
 ? Set up HammerJS for gesture recognition? Yes
 ? Set up browser animations for Angular Material? Yes
 ```
+
+### Add material nav
+
+```bash
+# test it first
+ng generate @angular/material:nav MainNav --dry-run
+
+# then run it 
+ng generate @angular/material:nav MainNav
+```
+
